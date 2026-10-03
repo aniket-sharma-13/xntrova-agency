@@ -6,22 +6,22 @@ export function FAQ() {
 
   return (
     <section className="py-16 md:py-20 lg:py-24">
-      <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Frequently Asked Questions</h2>
+      <div className="page-pad mx-auto max-w-3xl">
+        <h2 className="text-[clamp(1.6rem,4vw,2.25rem)] font-bold tracking-tight">Frequently Asked Questions</h2>
         <p className="mt-3 text-body">Resolve your general queries and concerns with our FAQ section below.</p>
         <div className="mt-8 divide-y divide-line border-y border-line">
           {faqs.map((item, i) => {
             const expanded = open === i;
             return (
-              <div key={item.q}>
+              <div key={item.q} className="min-w-0">
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between gap-4 px-1 py-4 text-left font-semibold"
+                  className="flex min-h-11 w-full min-w-0 items-start justify-between gap-4 px-1 py-4 text-left font-semibold"
                   aria-expanded={expanded}
                   onClick={() => setOpen(expanded ? -1 : i)}
                 >
-                  {item.q}
-                  <span className="text-primary" aria-hidden="true">
+                  <span className="min-w-0 flex-1">{item.q}</span>
+                  <span className="shrink-0 text-primary" aria-hidden="true">
                     {expanded ? "–" : "+"}
                   </span>
                 </button>

@@ -7,21 +7,21 @@ export function Approach() {
     <section className="py-16 md:py-20 lg:py-24">
       <div
         ref={ref}
-        className="reveal mx-auto grid max-w-[1440px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:px-10"
+        className="page-pad reveal mx-auto grid max-w-[1440px] items-center gap-10 lg:grid-cols-2"
       >
         <div className="relative overflow-hidden rounded-3xl">
           <img
             src="/assets/approach.jpg"
             alt="Reviewing campaign performance and results"
-            className="h-[360px] w-full object-cover md:h-[440px]"
+            className="h-[min(360px,70vw)] w-full object-cover md:h-[440px]"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-dark/80 to-transparent p-6 text-white">
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-dark/80 to-transparent p-4 text-white sm:p-6">
             <p className="text-sm font-semibold text-cta">Campaign review</p>
             <p className="mt-1 text-lg font-semibold">Turning numbers into the next action</p>
           </div>
         </div>
         <div>
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 className="text-[clamp(1.6rem,4vw,2.25rem)] font-bold tracking-tight">
             Turning Potential Into <span className="text-primary">Performance</span>
           </h2>
           <div className="mt-6 space-y-4 text-body leading-relaxed">

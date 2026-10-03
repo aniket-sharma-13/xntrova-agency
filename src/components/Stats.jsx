@@ -9,7 +9,7 @@ export function Stats() {
     <section className="relative overflow-hidden py-16 md:py-20">
       <img src="/assets/stats.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-dark/78" />
-      <div ref={ref} className="reveal relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10">
+      <div ref={ref} className="page-pad reveal relative mx-auto max-w-[1440px]">
         <p className="text-center text-xs font-semibold tracking-[0.16em] text-cta uppercase">
           Performance overview
         </p>
@@ -18,7 +18,7 @@ export function Stats() {
             <Stat key={item.label} {...item} />
           ))}
         </div>
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm font-medium text-white/70">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-medium text-white/70 sm:gap-8">
           <span>Reviews platform</span>
           <span className="text-white">Clutch</span>
           <span className="text-white">GoodFirms</span>
@@ -67,7 +67,7 @@ function Stat({ value, suffix, label }) {
 
   return (
     <div ref={ref} className="text-center text-white">
-      <p className="text-4xl font-bold text-cta md:text-5xl">
+      <p className="text-[clamp(2rem,5vw,3rem)] font-bold text-cta">
         {value === 250 ? "+" : ""}
         {n}
         {suffix}

@@ -35,6 +35,15 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = (event) => {
+      if (event.matches) closeAll();
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   const closeAll = () => {
     setOpen(false);
     setServicesOpen(false);
@@ -45,7 +54,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50">
       <div className="hidden border-b border-white/10 bg-dark text-[13px] text-white/80 lg:block">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-2 sm:px-8 lg:px-10">
+        <div className="page-pad mx-auto flex max-w-[1440px] items-center justify-between py-2">
           <div className="flex items-center gap-5">
             <a className="inline-flex items-center gap-1.5 hover:text-cta" href="tel:+918683828646">
               <Icon name="phone" className="text-primary" />
@@ -70,12 +79,12 @@ export function Header() {
           scrolled ? "border-line shadow-[0_8px_30px_rgba(0,23,32,0.08)]" : "border-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-10">
-          <a href="#top" className="flex shrink-0 items-center" onClick={closeAll}>
-            <img src="/assets/logo.png" alt="Xntrova" className="h-9 w-auto lg:h-10" />
+        <div className="page-pad mx-auto flex max-w-[1440px] min-w-0 items-center justify-between gap-3 py-3">
+          <a href="#top" className="flex min-w-0 shrink items-center" onClick={closeAll}>
+            <img src="/assets/logo.png" alt="Xntrova" className="h-8 w-auto max-w-[min(100%,11rem)] sm:h-9 lg:h-10" />
           </a>
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-0 xl:gap-1 lg:flex" aria-label="Primary">
             <NavLink href="#top" label="Home" current />
             <NavLink href="#about" label="About Us" />
             <div
@@ -85,14 +94,14 @@ export function Header() {
             >
               <button
                 type="button"
-                className="group relative flex items-center gap-1.5 px-5 py-2 text-sm font-medium text-ink transition-colors hover:text-primary"
+                className="group relative flex min-h-11 items-center gap-1.5 px-3 py-2 text-sm font-medium text-ink transition-colors hover:text-primary xl:px-5"
                 aria-expanded={servicesOpen}
                 aria-haspopup="true"
                 onClick={() => setServicesOpen((v) => !v)}
               >
                 Services
                 <Icon name="chevron" className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
-                <span className="pointer-events-none absolute right-5 bottom-0 left-5 h-0.5 origin-left scale-x-0 rounded-full bg-cta transition-transform duration-200 group-hover:scale-x-100" />
+                <span className="pointer-events-none absolute right-3 bottom-0 left-3 h-0.5 origin-left scale-x-0 rounded-full bg-cta transition-transform duration-200 group-hover:scale-x-100 xl:right-5 xl:left-5" />
               </button>
               <div
                 className={`absolute left-0 top-full z-20 w-[320px] origin-top rounded-xl border border-line bg-white p-2 shadow-[0_20px_50px_rgba(0,23,32,0.12)] transition ${
@@ -144,14 +153,14 @@ export function Header() {
 
             <a
               href="#contact"
-              className="hidden rounded-sm bg-cta px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-95 sm:inline-flex"
+              className="hidden min-h-11 items-center rounded-sm bg-cta px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-95 lg:inline-flex xl:px-6"
             >
               Contact Us
             </a>
 
             <button
               type="button"
-              className="rounded-sm p-2 text-ink lg:hidden"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm p-2 text-ink lg:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="mobile-nav"
@@ -164,18 +173,22 @@ export function Header() {
 
         <div
           id="mobile-nav"
-          className={`overflow-hidden border-t border-line bg-white lg:hidden ${open ? "max-h-[min(86vh,900px)]" : "max-h-0 border-t-0"}`}
+          className={`grid bg-white lg:hidden ${open ? "grid-rows-[1fr] border-t border-line" : "grid-rows-[0fr]"}`}
         >
-          <nav className="flex max-h-[min(86vh,900px)] flex-col gap-1 overflow-y-auto px-5 py-4" aria-label="Mobile">
-            <a className="py-3 font-medium" href="#top" onClick={closeAll}>
+          <div className="min-h-0 overflow-hidden">
+          <nav
+            className="page-pad flex max-h-[calc(100dvh-5rem)] flex-col gap-1 overflow-y-auto py-4 pb-[max(1rem,env(safe-area-inset-bottom))]"
+            aria-label="Mobile"
+          >
+            <a className="flex min-h-11 items-center py-3 font-medium" href="#top" onClick={closeAll}>
               Home
             </a>
-            <a className="py-3 font-medium" href="#about" onClick={closeAll}>
+            <a className="flex min-h-11 items-center py-3 font-medium" href="#about" onClick={closeAll}>
               About Us
             </a>
             <button
               type="button"
-              className="flex items-center justify-between py-3 text-left font-medium"
+              className="flex min-h-11 w-full items-center justify-between py-3 text-left font-medium"
               aria-expanded={mobileServices}
               onClick={() => setMobileServices((v) => !v)}
             >
@@ -185,29 +198,36 @@ export function Header() {
             {mobileServices && (
               <div className="mb-2 ml-3 flex flex-col border-l border-line pl-3">
                 {services.map((item) => (
-                  <a key={item.id} className="py-2 text-sm text-body" href={item.href} onClick={closeAll}>
+                  <a key={item.id} className="flex min-h-11 items-center py-2 text-sm text-body" href={item.href} onClick={closeAll}>
                     {item.title}
                   </a>
                 ))}
               </div>
             )}
-            <a className="py-3 font-medium" href="https://www.xntrova.com/blog/" target="_blank" rel="noreferrer">
+            <a className="flex min-h-11 items-center py-3 font-medium" href="https://www.xntrova.com/blog/" target="_blank" rel="noreferrer">
               Blog
             </a>
-            <a className="py-3 font-medium" href="https://www.xntrova.com/careers/" target="_blank" rel="noreferrer">
+            <a className="flex min-h-11 items-center py-3 font-medium" href="https://www.xntrova.com/careers/" target="_blank" rel="noreferrer">
               Careers
             </a>
-            <div className="flex items-center gap-2 py-3 text-sm text-body">
+            <a className="flex min-h-11 items-center gap-2 py-3 text-sm text-body" href="tel:+918683828646">
+              <Icon name="phone" className="text-primary" /> +91 868-382-8646
+            </a>
+            <a className="flex min-h-11 items-center gap-2 py-3 text-sm text-body" href="mailto:info@xntrova.com">
+              <Icon name="mail" className="text-primary" /> info@xntrova.com
+            </a>
+            <div className="flex min-h-11 items-center gap-2 py-3 text-sm text-body">
               <Icon name="globe" className="text-primary" /> India
             </div>
             <a
               href="#contact"
               onClick={closeAll}
-              className="mt-2 inline-flex justify-center rounded-sm bg-cta px-6 py-3 text-sm font-semibold text-ink"
+              className="mt-2 inline-flex min-h-11 items-center justify-center rounded-sm bg-cta px-6 py-3 text-sm font-semibold text-ink"
             >
               Contact Us
             </a>
           </nav>
+          </div>
         </div>
       </div>
     </header>
@@ -218,13 +238,13 @@ function NavLink({ href, label, current, external }) {
   return (
     <a
       href={href}
-      className="group relative px-5 py-2 text-sm font-medium text-ink transition-colors hover:text-primary"
+      className="group relative inline-flex min-h-11 items-center px-3 py-2 text-sm font-medium text-ink transition-colors hover:text-primary xl:px-5"
       {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
       {...(current ? { "aria-current": "page" } : {})}
     >
       {label}
       <span
-        className={`pointer-events-none absolute right-5 bottom-0 left-5 h-0.5 origin-left rounded-full bg-cta transition-transform duration-200 ${
+        className={`pointer-events-none absolute right-3 bottom-0 left-3 h-0.5 origin-left rounded-full bg-cta transition-transform duration-200 xl:right-5 xl:left-5 ${
           current ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
         }`}
       />

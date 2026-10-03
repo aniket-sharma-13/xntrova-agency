@@ -19,7 +19,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7.5rem;
+  scroll-padding-top: 4.75rem;
+  overflow-x: clip;
 }
 
 body {
@@ -27,6 +28,41 @@ body {
   font-family: var(--font-sans);
   color: var(--color-ink);
   background: #fff;
+  overflow-x: clip;
+  overflow-wrap: break-word;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+  font-size: 1rem;
+}
+
+.page-pad {
+  padding-inline: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 640px) {
+  .page-pad {
+    padding-inline: max(2rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 7.5rem;
+  }
+
+  .page-pad {
+    padding-inline: max(2.5rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  }
 }
 
 ::selection {

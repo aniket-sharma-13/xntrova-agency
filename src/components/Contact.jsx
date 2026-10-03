@@ -28,9 +28,9 @@ export function Contact() {
     <section id="contact" className="relative overflow-hidden py-16 text-white md:py-20 lg:py-24">
       <img src="/assets/contact.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-dark/80" />
-      <div className="relative mx-auto grid max-w-[1440px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
-        <div>
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+      <div className="page-pad relative mx-auto grid max-w-[1440px] min-w-0 items-center gap-10 lg:grid-cols-2">
+        <div className="min-w-0">
+          <h2 className="text-[clamp(1.6rem,4vw,2.25rem)] font-bold tracking-tight">
             Boost your brand growth with the Best Digital Marketing Company in Delhi
           </h2>
           <p className="mt-4 max-w-lg text-white/75">
@@ -43,7 +43,7 @@ export function Contact() {
           </p>
         </div>
         <form
-          className="rounded-2xl bg-white p-6 text-ink md:p-8"
+          className="min-w-0 rounded-2xl bg-white p-5 text-ink sm:p-6 md:p-8"
           onSubmit={onSubmit}
           noValidate
         >
@@ -58,7 +58,7 @@ export function Contact() {
                 Name
                 <input
                   name="name"
-                  className={`mt-1 min-h-11 w-full rounded-md border px-3 ${errors.name ? "border-red-600" : "border-line"}`}
+                  className={`mt-1 min-h-11 w-full rounded-md border px-3 text-base sm:text-sm ${errors.name ? "border-red-600" : "border-line"}`}
                   aria-invalid={errors.name ? "true" : "false"}
                 />
                 {errors.name && (
@@ -72,7 +72,7 @@ export function Contact() {
                 <input
                   name="email"
                   type="email"
-                  className={`mt-1 min-h-11 w-full rounded-md border px-3 ${errors.email ? "border-red-600" : "border-line"}`}
+                  className={`mt-1 min-h-11 w-full rounded-md border px-3 text-base sm:text-sm ${errors.email ? "border-red-600" : "border-line"}`}
                   aria-invalid={errors.email ? "true" : "false"}
                 />
                 {errors.email && (
@@ -83,7 +83,7 @@ export function Contact() {
               </label>
               <label className="block text-sm font-medium">
                 Which service are you interested in?
-                <select name="service" className="mt-1 min-h-11 w-full rounded-md border border-line px-3" defaultValue="">
+                <select name="service" className="mt-1 min-h-11 w-full max-w-full rounded-md border border-line px-3 text-base sm:text-sm" defaultValue="">
                   <option value="">Select a service</option>
                   {formServices.map((item) => (
                     <option key={item}>{item}</option>

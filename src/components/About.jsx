@@ -8,14 +8,14 @@ export function About() {
     <section id="about" className="overflow-hidden py-16 md:py-20 lg:py-24">
       <div
         ref={ref}
-        className="reveal mx-auto grid max-w-[1440px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-12 lg:px-10"
+        className="page-pad reveal mx-auto grid max-w-[1440px] items-center gap-10 sm:gap-14 lg:grid-cols-2 lg:gap-12"
       >
-        <div>
+          <div className="min-w-0">
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] text-primary uppercase">
             <span className="h-px w-6 bg-primary/50" aria-hidden="true" />
             About Xntrova
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 className="mt-4 text-[clamp(1.6rem,4vw,2.25rem)] font-bold tracking-tight">
             <span className="block">Driven By Ideas.</span>
             <span className="block">
               Focused on <span className="text-primary">Results</span>
@@ -47,34 +47,34 @@ export function About() {
           </div>
         </div>
 
-        <div className="relative grid grid-cols-2 gap-4">
+        <div className="relative grid min-w-0 grid-cols-2 gap-3 sm:gap-4">
           <img
             src="/assets/about-main.jpg"
             alt="Team collaborating in an office"
-            className="col-span-2 h-[280px] w-full rounded-2xl object-cover md:h-[340px]"
+            className="col-span-2 h-[min(280px,52vw)] w-full rounded-2xl object-cover md:h-[340px]"
           />
           <img
             src="/assets/about-2.jpg"
             alt="Strategy discussion"
-            className="h-40 w-full rounded-2xl object-cover md:h-48"
+            className="h-[min(10rem,32vw)] w-full rounded-2xl object-cover md:h-48"
           />
           <img
             src="/assets/about-3.jpg"
             alt="Client workshop"
-            className="h-40 w-full rounded-2xl object-cover md:h-48"
+            className="h-[min(10rem,32vw)] w-full rounded-2xl object-cover md:h-48"
           />
         </div>
       </div>
 
-      <div className="mx-auto mt-16 max-w-[1440px] px-5 sm:px-8 lg:px-10">
-        <div className="overflow-hidden rounded-[28px] bg-dark text-white">
-          <div className="px-6 py-10 md:px-12">
+      <div className="page-pad mx-auto mt-16 max-w-[1440px]">
+        <div className="overflow-hidden rounded-[22px] bg-dark text-white sm:rounded-[28px]">
+          <div className="px-5 py-8 sm:px-6 md:px-12 md:py-10">
             <p className="text-sm font-semibold tracking-[0.16em] text-cta uppercase">Let’s grow together</p>
             <h3 className="mt-2 text-2xl font-semibold md:text-3xl">Driven by Results</h3>
           </div>
-          <ol className="grid md:grid-cols-4">
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4">
             {cycle.map((item, index) => (
-              <li key={item.title} className="relative min-h-[220px] overflow-hidden">
+              <li key={item.title} className="relative min-h-[200px] overflow-hidden sm:min-h-[220px]">
                 <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-dark/72" />
                 <div className="relative flex h-full flex-col justify-end p-6">

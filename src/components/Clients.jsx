@@ -5,8 +5,8 @@ export function Clients() {
 
   return (
     <section className="overflow-hidden border-y border-line bg-surface py-14">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10">
-        <h2 className="text-center text-2xl font-bold tracking-tight md:text-3xl">
+      <div className="page-pad mx-auto max-w-[1440px]">
+        <h2 className="text-center text-[clamp(1.35rem,3vw,1.875rem)] font-bold tracking-tight">
           Trusted by thousands of companies
         </h2>
       </div>
@@ -22,7 +22,7 @@ export function Clients() {
           ))}
         </div>
       </div>
-      <div className="mx-auto mt-10 flex max-w-[1440px] flex-wrap items-center justify-center gap-6 px-5 text-sm text-body sm:px-8 lg:px-10">
+      <div className="page-pad mx-auto mt-10 flex max-w-[1440px] flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-body">
         <span className="font-semibold text-ink">Tools we work with</span>
         {tools.map((tool) => (
           <span key={tool}>{tool}</span>

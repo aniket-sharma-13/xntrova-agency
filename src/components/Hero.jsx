@@ -31,7 +31,7 @@ export function Hero() {
   }
 
   return (
-    <section id="top" className="relative isolate min-h-[100svh] overflow-hidden bg-dark text-white">
+    <section id="top" className="relative isolate overflow-hidden bg-dark text-white lg:min-h-[100svh]">
       <img
         src="/assets/hero.jpg"
         alt="Marketing team collaborating around a table"
@@ -42,36 +42,36 @@ export function Hero() {
       <div className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
       <div className="pointer-events-none absolute right-10 bottom-10 h-56 w-56 rounded-full bg-cta/15 blur-3xl" />
 
-      <div className="relative mx-auto grid min-h-[100svh] max-w-[1440px] items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:py-24">
-        <div>
-          <p className="hero-in text-xs font-semibold tracking-[0.18em] text-cta uppercase">
+      <div className="page-pad relative mx-auto grid min-h-0 max-w-[1440px] items-center gap-8 py-12 sm:gap-12 sm:py-16 lg:min-h-[100svh] lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
+        <div className="min-w-0">
+          <p className="hero-in text-[0.7rem] font-semibold tracking-[0.18em] text-cta uppercase sm:text-xs">
             Digital marketing agency in Delhi
           </p>
-          <h1 className="hero-in mt-4 max-w-3xl text-4xl leading-[1.12] font-bold tracking-tight md:text-5xl lg:text-[56px]">
+          <h1 className="hero-in mt-4 max-w-3xl text-[clamp(1.75rem,6.5vw,3.5rem)] leading-[1.12] font-bold tracking-tight">
             Scale Your Business With The Best Digital Marketing Agency in Delhi
           </h1>
-          <p className="hero-in mt-5 max-w-xl text-lg leading-relaxed text-white/80" style={{ animationDelay: "120ms" }}>
+          <p className="hero-in mt-5 max-w-xl text-[0.95rem] leading-relaxed text-white/80 sm:text-lg" style={{ animationDelay: "120ms" }}>
             Unlock your business potential and connect with your targeted customers by partnering
             with Xntrova, the best digital marketing agency in Delhi.
           </p>
-          <div className="hero-in mt-8 flex flex-wrap gap-3" style={{ animationDelay: "200ms" }}>
+          <div className="hero-in mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap" style={{ animationDelay: "200ms" }}>
             <a
               href="#contact"
-              className="inline-flex items-center rounded-sm bg-cta px-7 py-3.5 text-sm font-semibold text-ink transition hover:brightness-95"
+              className="inline-flex min-h-11 items-center justify-center rounded-sm bg-cta px-7 py-3.5 text-sm font-semibold text-ink transition hover:brightness-95"
             >
               Get Free Digital Audit
             </a>
             <a
               href="#services"
-              className="inline-flex items-center rounded-sm border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
+              className="inline-flex min-h-11 items-center justify-center rounded-sm border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
             >
               View services
             </a>
           </div>
         </div>
 
-        <div className="hero-in animate-float lg:justify-self-end" style={{ animationDelay: "180ms" }}>
-          <div className="w-full max-w-md rounded-2xl border border-white/15 bg-white p-6 text-ink shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
+        <div className="hero-in w-full min-w-0 lg:animate-float lg:justify-self-end" style={{ animationDelay: "180ms" }}>
+          <div className="w-full max-w-md rounded-2xl border border-white/15 bg-white p-5 text-ink shadow-[0_30px_80px_rgba(0,0,0,0.28)] sm:p-6">
             <h2 className="text-xl font-semibold">Get a Free Digital Audit</h2>
             <p className="mt-1 text-sm text-body">Tell us about your business and we’ll get back to you shortly.</p>
 
@@ -91,7 +91,7 @@ export function Hero() {
                     id="hero-service"
                     name="service"
                     aria-invalid={errors.service ? "true" : "false"}
-                    className="min-h-11 w-full rounded-md border border-line bg-white px-3 text-sm"
+                    className="min-h-11 w-full rounded-md border border-line bg-white px-3 text-base sm:text-sm"
                     defaultValue=""
                   >
                     <option value="">Select a service</option>
@@ -134,7 +134,7 @@ function Field({ label, name, type = "text", error }) {
         type={type}
         autoComplete={name}
         aria-invalid={error ? "true" : "false"}
-        className={`min-h-11 w-full rounded-md border px-3 text-sm ${error ? "border-red-600" : "border-line"}`}
+        className={`min-h-11 w-full rounded-md border px-3 text-base sm:text-sm ${error ? "border-red-600" : "border-line"}`}
       />
       {error && (
         <p className="mt-1 text-xs text-red-700" aria-live="polite">

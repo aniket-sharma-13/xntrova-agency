@@ -6,7 +6,7 @@ export function Footer() {
 
   return (
     <footer className="bg-footer pt-14 pb-8 text-white">
-      <div className="mx-auto grid max-w-[1440px] gap-10 px-5 sm:px-8 md:grid-cols-2 lg:grid-cols-4 lg:px-10">
+      <div className="page-pad mx-auto grid max-w-[1440px] min-w-0 gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <img src="/assets/logo.png" alt="Xntrova" className="h-8 w-auto brightness-0 invert" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">
@@ -19,13 +19,13 @@ export function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             {services.map((item) => (
               <li key={item.id}>
-                <a className="hover:text-cta" href={item.href}>
+                <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href={item.href}>
                   {item.title}
                 </a>
               </li>
             ))}
             <li>
-              <a className="hover:text-cta" href="#contact">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="#contact">
                 Email Marketing
               </a>
             </li>
@@ -35,32 +35,32 @@ export function Footer() {
           <h2 className="text-sm font-semibold tracking-wide uppercase">Company</h2>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             <li>
-              <a className="hover:text-cta" href="#top">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="#top">
                 Home
               </a>
             </li>
             <li>
-              <a className="hover:text-cta" href="#about">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="#about">
                 About Us
               </a>
             </li>
             <li>
-              <a className="hover:text-cta" href="#contact">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="#contact">
                 Contact Us
               </a>
             </li>
             <li>
-              <a className="hover:text-cta" href="#services">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="#services">
                 Services
               </a>
             </li>
             <li>
-              <a className="hover:text-cta" href="https://www.xntrova.com/blog/" target="_blank" rel="noreferrer">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="https://www.xntrova.com/blog/" target="_blank" rel="noreferrer">
                 Blog
               </a>
             </li>
             <li>
-              <a className="hover:text-cta" href="https://www.xntrova.com/careers/" target="_blank" rel="noreferrer">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="https://www.xntrova.com/careers/" target="_blank" rel="noreferrer">
                 Careers
               </a>
             </li>
@@ -69,33 +69,33 @@ export function Footer() {
         <div>
           <h2 className="text-sm font-semibold tracking-wide uppercase">Get in touch</h2>
           <ul className="mt-4 space-y-3 text-sm text-white/70">
-            <li className="flex gap-2">
-              <Icon name="pin" className="mt-0.5 text-cta" />
-              A107, 2nd Floor, Sector 8, Dwarka New Delhi - 110077
+            <li className="flex min-w-0 gap-2">
+              <Icon name="pin" className="mt-0.5 shrink-0 text-cta" />
+              <span>A107, 2nd Floor, Sector 8, Dwarka New Delhi - 110077</span>
             </li>
             <li>
-              <a className="hover:text-cta" href="tel:+918683828646">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="tel:+918683828646">
                 +91 868-382-8646
               </a>
             </li>
             <li>
-              <a className="hover:text-cta" href="mailto:info@xntrova.com">
+              <a className="inline-flex min-h-11 items-center hover:text-cta lg:min-h-0" href="mailto:info@xntrova.com">
                 info@xntrova.com
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="mx-auto mt-10 flex max-w-[1440px] flex-col gap-3 border-t border-white/10 px-5 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10">
+      <div className="page-pad mx-auto mt-10 flex max-w-[1440px] flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
         <p>© {year} Xntrova. All rights reserved.</p>
         <p className="flex flex-wrap gap-x-3 gap-y-1">
-          <a href="https://www.xntrova.com/privacy-policy/" className="hover:text-white">
+          <a href="https://www.xntrova.com/privacy-policy/" className="inline-flex min-h-11 items-center hover:text-white lg:min-h-0">
             Privacy Policy
           </a>
-          <a href="https://www.xntrova.com/terms-and-conditions/" className="hover:text-white">
+          <a href="https://www.xntrova.com/terms-and-conditions/" className="inline-flex min-h-11 items-center hover:text-white lg:min-h-0">
             Terms & Conditions
           </a>
-          <a href="https://www.xntrova.com/cookie-policy/" className="hover:text-white">
+          <a href="https://www.xntrova.com/cookie-policy/" className="inline-flex min-h-11 items-center hover:text-white lg:min-h-0">
             Cookie Policy
           </a>
         </p>

@@ -7,13 +7,13 @@ export function Services() {
 
   return (
     <section id="services" className="py-16 md:py-20 lg:py-24">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10">
-        <div ref={ref} className="reveal max-w-3xl">
+      <div className="page-pad mx-auto max-w-[1440px]">
+        <div ref={ref} className="reveal max-w-3xl min-w-0">
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] text-primary uppercase">
             <span className="h-px w-6 bg-primary/50" />
             Services
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 className="mt-4 text-[clamp(1.6rem,4vw,2.25rem)] font-bold tracking-tight">
             Best Digital Marketing Services in Delhi for Sustainable Business Growth
           </h2>
           <p className="mt-4 text-body">
@@ -22,11 +22,11 @@ export function Services() {
           </p>
         </div>
 
-        <ul className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {services.map((item) => (
             <li key={item.id} id={item.id}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white transition duration-300 hover:-translate-y-1.5 hover:border-primary hover:shadow-[0_20px_50px_rgba(0,117,162,0.12)]">
-                <div className="relative h-44 overflow-hidden">
+              <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-line bg-white transition duration-300 hover:-translate-y-1.5 hover:border-primary hover:shadow-[0_20px_50px_rgba(0,117,162,0.12)]">
+                <div className="relative aspect-[16/9] h-auto overflow-hidden sm:h-44 sm:aspect-auto">
                   <img
                     src={item.image}
                     alt={item.alt}
@@ -40,7 +40,7 @@ export function Services() {
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-body">{item.blurb}</p>
                 <a
                   href="#contact"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3"
+                  className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3"
                 >
                   {item.cta}
                   <Icon name="arrow" />
