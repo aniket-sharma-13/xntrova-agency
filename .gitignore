@@ -8,3 +8,5 @@ _parse3.py
 _parse4.py
 _parse5.py
 .DS_Store
+.env
+.env.local
